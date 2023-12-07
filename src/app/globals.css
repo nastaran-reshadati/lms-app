@@ -3,5 +3,10 @@
 @tailwind utilities;
 
 html {
+  /* default font */
+  font-family: var(--font-vazir);
+}
+/* If lang = 'en', this font is used */
+:lang(en) {
   font-family: var(--font-figtree);
 }
