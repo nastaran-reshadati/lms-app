@@ -1,7 +1,6 @@
 import { colord, extend } from "colord";
 import type { Config } from "tailwindcss";
 import mixPlugin from "colord/plugins/mix";
-
 extend([mixPlugin]);
 
 const generateDarkenColorFrom = (input: string, perecentage = 0.07): string =>
@@ -54,8 +53,16 @@ const config: Config = {
   content: ["./src/app/**/*.{js,ts,jsx,tsx}"],
   theme: {
     colors: tailwindColors,
-    extend: {},
+    container: {
+      center: true,
+    },
+    extend: {
+      backgroundImage: {
+        "hero-pattern": "url('/images/tile.svg')",
+      },
+    },
   },
+  darkMode: "class",
   plugins: [],
 };
 export default config;

@@ -1,6 +1,8 @@
 import "./globals.css";
 import { Figtree } from "next/font/google";
 import localFont from "next/font/local";
+import Header from "./_components/header/header";
+import Footer from "./_components/footer/footer";
 const figTree = Figtree({
   display: "swap",
   subsets: ["latin"],
@@ -42,17 +44,13 @@ export default function RootLayout({
     <html
       // lang="fa"
       dir="rtl"
-      className={`${figTree.variable} ${vazirFont.variable}`}
+      className={`dark ${figTree.variable} ${vazirFont.variable}`}
     >
-      <body className="flex flex-col min-h-screen font-bold uppercase">
-        <header className="bg-gray-400 flex justify-center items-center">
-          Header
-        </header>
-        <div className="flex flex-1">{children}</div>
+      <body className="min-h-screen grid grid-rows-[80px_1fr_auto] dark dark:bg-base-100 dark:text-base-content">
+        <Header />
+        {children}
 
-        <footer className="bg-gray-400 flex justify-center items-center">
-          Footer
-        </footer>
+        <Footer />
       </body>
     </html>
   );
