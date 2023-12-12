@@ -1,8 +1,10 @@
 import { ButtonHTMLAttributes } from "react";
-import { componentBase } from "../types/component-base.type";
+import { ComponentBase } from "../types/component-base.type"; 
 import { loadingBehavior } from "./loading-behavior.type";
+
+
 export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & loadingBehavior
-  componentBase & {
+ComponentBase & {
     isOutline?: boolean;
     isLink?: boolean;
     animatedIcon?: boolean;
