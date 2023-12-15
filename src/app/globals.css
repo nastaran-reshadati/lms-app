@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "../tailwind/components/component.css";
+
 html {
   /* default font */
   font-family: var(--font-vazir);

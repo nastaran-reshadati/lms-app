@@ -42,9 +42,7 @@ export default function Home() {
         </div>
       </section>
       <div className="container">
-        <Button shape="wide" size="large" animatedIcon={true}>
-          ثبت نام
-        </Button>
+        <Button> ورود و ثبت نام</Button>
       </div>
     </>
   );
