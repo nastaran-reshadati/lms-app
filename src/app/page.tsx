@@ -11,7 +11,7 @@ export default function Home() {
       "
         >
           <div
-            className="flex flex-col gap-5 mt-12 pb-5 text-center xl:text-right lg:pr-5
+            className="flex flex-col gap-5 mt-12 text-center xl:text-right lg:pr-5
       "
           >
             <h3 className="text-xl xl:text-2xl dark:text-info">
@@ -25,6 +25,16 @@ export default function Home() {
               با آکادمی خصوصی ما ، علم برنامه نویسی رو با خیال راحت یاد بگیر و
               پیشرفت کن{" "}
             </p>
+            <div className="mt-5 mb-5 flex gap-4">
+              <Button variant="primary" size="large">
+                {" "}
+                دوره های آموزشی فرانت اند
+              </Button>
+              <Button isOutline={true} variant="neutral" size="large">
+                {" "}
+                مشاوره برنامه نویسی
+              </Button>
+            </div>
             <Image
               width="412"
               height="40"
@@ -40,9 +50,22 @@ export default function Home() {
             height={521}
           />
         </div>
+
+        {/* <Button isOutline={true} variant="secondary" size="wide">
+          {" "}
+          ورود و ثبت نام
+        </Button> */}
       </section>
-      <div className="container">
-        <Button> ورود و ثبت نام</Button>
+      <div className="flex w-96">
+        <Button
+          isOutline={true}
+          variant="secondary"
+          size="small"
+          shape="square"
+        >
+          {" "}
+          ورود و ثبت نام
+        </Button>
       </div>
     </>
   );
