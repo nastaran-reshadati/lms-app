@@ -42,7 +42,6 @@ export const Button: React.FC<ButtonProps> = ({
     { "animated-icon": animatedIcon },
     { "pointer-events-none opacity-80": isLoading }
   );
-
   return (
     <button type={type} disabled={isDisabled} className={classes} {...rest}>
       {isLoading ? loadingText : children}
