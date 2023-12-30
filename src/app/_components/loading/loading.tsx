@@ -19,8 +19,8 @@ export const Loading: React.FC<LoadingProps> = ({
     "loading",
     className,
     { [`${sizeClasses[size]}`]: size },
-    { [`loading-${variant}`]: variant },
-    { [`loading-${type}`]: type }
+    { [`loading-${variant}`]: variant }, //loading-spinner
+    { [`loading-${type}`]: type } //loading-primary
   );
   return <span className={classes}></span>;
 };

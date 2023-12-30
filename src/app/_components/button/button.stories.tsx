@@ -25,3 +25,35 @@ export const BrandColors: Story = {
     </>
   ),
 };
+
+export const BrandColorsWithLoading: Story = {
+  render: () => (
+    <>
+      <Button>Default</Button>
+      <Button isLoading={true} loadingText="loading" variant="neutral">
+        Neutral
+      </Button>
+      <Button isLoading={true} loadingText="loading" variant="primary">
+        primary
+      </Button>
+      <Button isLoading={true} loadingText="loading" variant="secondary">
+        secondary
+      </Button>
+      <Button isLoading={true} loadingText="loading" variant="accent">
+        accent
+      </Button>
+      <Button isLoading={true} loadingText="loading" variant="ghost">
+        ghost
+      </Button>
+      <Button isLoading={true} loadingText="loading" variant="info">
+        info
+      </Button>
+      <Button isLoading={true} loadingText="loading" variant="success">
+        success
+      </Button>
+      <Button isLoading={true} loadingText="loading" variant="warning">
+        warning
+      </Button>
+    </>
+  ),
+};
