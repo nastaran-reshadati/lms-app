@@ -1,15 +1,6 @@
 // Replace your-framework with the framework you are using (e.g., react, vue3)
 import { Preview } from "@storybook/react";
 
-import {
-  Title,
-  Subtitle,
-  Description,
-  Primary,
-  Controls,
-  Stories,
-} from "@storybook/blocks";
-import React from "react";
 import "../src/app/globals.css";
 
 const preview: Preview = {
