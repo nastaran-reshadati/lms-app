@@ -9,7 +9,8 @@
     "lint": "next lint",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "test": "jest"
+    "test": "jest",
+    "test:generate-output": "jest --json --outputFile=.jest-test-results.json"
   },
   "dependencies": {
     "@testing-library/react": "^14.0.0",
@@ -22,6 +23,7 @@
   "devDependencies": {
     "@storybook/addon-essentials": "^7.6.5",
     "@storybook/addon-interactions": "^7.6.5",
+    "@storybook/addon-jest": "^7.5.0",
     "@storybook/addon-links": "^7.6.5",
     "@storybook/addon-onboarding": "^1.0.10",
     "@storybook/blocks": "^7.6.5",

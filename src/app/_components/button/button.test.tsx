@@ -37,4 +37,13 @@ describe("Button component", () => {
     render(<Button shape="wide">Click here</Button>);
     expect(screen.getByRole("button")).toHaveClass("btn-wide");
   });
+
+  test("show rendered button ", () => {
+    render(
+      <Button variant="primary" size="large" isOutline={true} isDisabled={true}>
+        Click Here
+      </Button>
+    );
+    screen.debug();
+  });
 });

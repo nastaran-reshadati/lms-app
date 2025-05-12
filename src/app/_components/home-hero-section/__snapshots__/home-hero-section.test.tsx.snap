@@ -1,0 +1,148 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home Hero Section display the  home hero section: <>
+          <section className="bg-hero-pattern bg-center bg-no-repeat mt-5 mb-5 xl:mt-20 xl:bg-left">
+            <div
+              className="continer flex flex-col-reverse items-center xl:flex-row
+          "
+            >
+              <div
+                className="flex flex-col gap-5 mt-12 text-center xl:text-right lg:pr-5
+          "
+              >
+                <h3 className="text-xl xl:text-2xl dark:text-info">
+                  خوش اومدی به ...
+                </h3>{" "}
+                <h1 className="text-2xl gradient  xl:text-4xl">
+                  برنامه نویسی رو با کمترینــــ هزینه خودت حرفه ایــــ یاد بگیـر
+                </h1>
+                <p>
+                  {" "}
+                  با آکادمی خصوصی ما ، علم برنامه نویسی رو با خیال راحت یاد بگیر و
+                  پیشرفت کن{" "}
+                </p>
+                <div className="mt-5 mb-5 flex gap-4">
+                  <Button variant="primary" size="large">
+                    {" "}
+                    دوره های آموزشی فرانت اند
+                  </Button>
+                  <Button isOutline={true} variant="neutral" size="large">
+                    {" "}
+                    مشاوره برنامه نویسی
+                  </Button>
+                </div>
+                <Image
+                  width="412"
+                  height="40"
+                  alt="frameworks"
+                  src="/images/frameworks.png"
+                  className="mx-auto grayscale xl:mx-5"
+                />
+              </div>
+              <Image
+                src="/images/programmer-landing.svg"
+                alt=""
+                width={702}
+                height={521}
+              />
+            </div>
+    
+            {/* <Button isOutline={true} variant="secondary" size="wide">
+              {" "}
+              ورود و ثبت نام
+            </Button> */}
+          </section>
+          <div className="flex w-96">
+            <Button
+              isOutline={true}
+              variant="secondary"
+              size="small"
+              shape="square"
+            >
+              {" "}
+              ورود و ثبت نام
+            </Button>
+          </div>
+        </> 1`] = `
+<div>
+  <section
+    class="bg-hero-pattern bg-center bg-no-repeat mt-5 mb-5 xl:mt-20 xl:bg-left"
+  >
+    <div
+      class="continer flex flex-col-reverse items-center xl:flex-row   "
+    >
+      <div
+        class="flex flex-col gap-5 mt-12 text-center xl:text-right lg:pr-5   "
+      >
+        <h3
+          class="text-xl xl:text-2xl dark:text-info"
+        >
+          خوش اومدی به ...
+        </h3>
+         
+        <h1
+          class="text-2xl gradient  xl:text-4xl"
+        >
+          برنامه نویسی رو با کمترینــــ هزینه خودت حرفه ایــــ یاد بگیـر
+        </h1>
+        <p>
+           
+          با آکادمی خصوصی ما ، علم برنامه نویسی رو با خیال راحت یاد بگیر و پیشرفت کن
+           
+        </p>
+        <div
+          class="mt-5 mb-5 flex gap-4"
+        >
+          <button
+            class="btn btn-primary btn-lg "
+            type="button"
+          >
+             
+            دوره های آموزشی فرانت اند
+          </button>
+          <button
+            class="btn btn-neutral btn-lg btn-outline "
+            type="button"
+          >
+             
+            مشاوره برنامه نویسی
+          </button>
+        </div>
+        <img
+          alt="frameworks"
+          class="mx-auto grayscale xl:mx-5"
+          data-nimg="1"
+          decoding="async"
+          height="40"
+          loading="lazy"
+          src="/_next/image?url=%2Fimages%2Fframeworks.png&w=828&q=75"
+          srcset="/_next/image?url=%2Fimages%2Fframeworks.png&w=640&q=75 1x, /_next/image?url=%2Fimages%2Fframeworks.png&w=828&q=75 2x"
+          style="color: transparent;"
+          width="412"
+        />
+      </div>
+      <img
+        alt=""
+        data-nimg="1"
+        decoding="async"
+        height="521"
+        loading="lazy"
+        src="/images/programmer-landing.svg"
+        style="color: transparent;"
+        width="702"
+      />
+    </div>
+  </section>
+  <div
+    class="flex w-96"
+  >
+    <button
+      class="btn btn-secondary btn-sm btn-outline btn-square"
+      type="button"
+    >
+       
+      ورود و ثبت نام
+    </button>
+  </div>
+</div>
+`;
