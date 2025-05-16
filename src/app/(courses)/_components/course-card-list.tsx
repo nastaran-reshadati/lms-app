@@ -1,3 +1,5 @@
+/** @format */
+
 import { CourrseSummary } from "@/types/course-summary-interface";
 import { CourseCard } from "./course-card";
 

@@ -1,3 +1,5 @@
+/** @format */
+
 import Image from "next/image";
 import { Button } from "../button";
 import React from "react";
@@ -56,17 +58,6 @@ export const HomeHeroSection: React.FC = () => {
           ورود و ثبت نام
         </Button> */}
       </section>
-      <div className="flex w-96">
-        <Button
-          isOutline={true}
-          variant="secondary"
-          size="small"
-          shape="square"
-        >
-          {" "}
-          ورود و ثبت نام
-        </Button>
-      </div>
     </>
   );
 };
