@@ -1,3 +1,5 @@
+/** @format */
+
 import classNames from "classnames";
 import { badgeProps } from "./badge.types";
 
@@ -18,11 +20,12 @@ export const Badge: React.FC<badgeProps> = ({
     "badge",
     className,
     {
-      [`bage-${variant}`]: variant,
+      [`badge-${variant}`]: variant,
     },
     {
       [`${sizeClasses[size]}`]: size,
     }
   );
+
   return <span className={classes}>{children}</span>;
 };
