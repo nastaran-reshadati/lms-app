@@ -2,6 +2,7 @@
 
 import { Badge } from "@/app/_components/badge/badge";
 import { IconArrowLeftFill, IconClock } from "@/app/_components/icons/icons";
+import { Price } from "@/app/_components/price/price";
 import { CourrseSummary } from "@/types/course-summary-interface";
 import Image from "next/image";
 import Link from "next/link";
@@ -42,7 +43,7 @@ export const CourseCard: React.FC<CourseCardProps> = ({
             {duration}
           </Badge>
 
-          {basePrice}
+          <Price price={basePrice} size="small" />
         </div>
       </div>
 
