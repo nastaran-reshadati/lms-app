@@ -3,6 +3,7 @@
 import { CourrseSummary } from "@/types/course-summary-interface";
 import { HomeHeroSection } from "./_components/home-hero-section/home-hero-section";
 import { CourseCardList } from "./(courses)/_components/course-card-list";
+import { IconBasket } from "./_components/icons/icons";
 
 // async function getNewestCourses(count: number): Promise<CourrseSummary[]> {
 //   const res = await fetch(
@@ -33,6 +34,7 @@ export default async function Home() {
           <p>برای به روز موندن یادگرفتن نکته های تازه ضروریه ! </p>
         </div>
         <CourseCardList courses={newestCourses} />
+        <IconBasket width={250} height={250} />
       </section>
     </>
   );
