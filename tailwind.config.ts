@@ -1,3 +1,5 @@
+/** @format */
+
 import { colord, extend } from "colord";
 import type { Config } from "tailwindcss";
 import mixPlugin from "colord/plugins/mix";
@@ -55,6 +57,11 @@ const config: Config = {
     colors: tailwindColors,
     container: {
       center: true,
+      padding: {
+        DEFAULT: "1rem",
+        lg: "3rem",
+        xl: "4rem",
+      },
     },
     extend: {
       backgroundImage: {

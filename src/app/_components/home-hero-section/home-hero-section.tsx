@@ -3,11 +3,12 @@
 import Image from "next/image";
 import { Button } from "../button";
 import React from "react";
+import { IconArrowLeftFill } from "../icons/icons";
 
 export const HomeHeroSection: React.FC = () => {
   return (
     <>
-      <section className="bg-hero-pattern bg-center bg-no-repeat mt-5 mb-5 xl:mt-20 xl:bg-left">
+      <section className="container bg-hero-pattern bg-center bg-no-repeat mt-5 mb-5 xl:mt-20 xl:bg-left">
         <div
           className="continer flex flex-col-reverse items-center xl:flex-row
       "
@@ -31,6 +32,7 @@ export const HomeHeroSection: React.FC = () => {
               <Button variant="primary" size="large">
                 {" "}
                 دوره های آموزشی فرانت اند
+                <IconArrowLeftFill />
               </Button>
               <Button isOutline={true} variant="neutral" size="large">
                 {" "}
