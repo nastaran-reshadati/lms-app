@@ -17,6 +17,10 @@ html {
 .gradient {
   @apply bg-gradient-to-r from-gradient-first to-gradient-second text-transparent bg-clip-text;
 }
+
+.gradient-reverse {
+  @apply bg-gradient-to-r from-gradient-second to-gradient-first text-transparent bg-clip-text;
+}
 .animated-icon {
   & > * {
     @apply transition-all;
