@@ -9,6 +9,7 @@ import { Feature } from "./_components/feature/feature";
 import { Button } from "./_components/button";
 import { BlogSummary } from "@/types/blog-summary-interface";
 import { BlogCardList } from "./(blog)/components/blogCardList/BlogCardList";
+import { API_URL } from "@/configs/global";
 
 // async function getNewestCourses(count: number): Promise<CourrseSummary[]> {
 //   const res = await fetch(
@@ -19,13 +20,11 @@ import { BlogCardList } from "./(blog)/components/blogCardList/BlogCardList";
 // }
 
 async function getNewestCoursesData(count: number): Promise<CourrseSummary[]> {
-  const res = await fetch(
-    `https://api.classbon.com/api/courses/newest/${count}`
-  );
+  const res = await fetch(`${API_URL}/courses/newest/${count}`);
   return res.json();
 }
 async function getNewestBlogsData(count: number): Promise<BlogSummary[]> {
-  const res = await fetch(`https://api.classbon.com/api/blog/newest/${count}`);
+  const res = await fetch(`${API_URL}/blog/newest/${count}`);
   return res.json();
 }
 
