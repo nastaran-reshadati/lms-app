@@ -13,6 +13,8 @@ import { API_URL } from "@/configs/global";
 import { MockBlogSummaries } from "@/enums/general";
 import { Suspense } from "react";
 import { CardPlaceholder } from "./_components/placeholder/card/card-placeholder";
+import { testimonials } from "@/data/testiMonial";
+import { TestMonialList } from "./_components/testiMonial/testimonial-list";
 
 // export const dynamic = "force-dynamic"; // This will disable static generation for this page
 
@@ -101,6 +103,8 @@ export default async function Home() {
 
         <section className="flex justify-between pt-20">
           <div className="text-center xl:text-right">
+            <div className="bg-primary pointer-events-none absolute w-1/2 left-1/2 aspect-square rounded-full -translate-x-1/2 -top-96 opacity-10 blur-3xl"></div>
+
             <h2 className="text-2xl font-extrabold">
               تازه ترین مقاله های آموزشی
             </h2>
@@ -112,6 +116,42 @@ export default async function Home() {
         </section>
         <BlogCardList blogs={blogs} />
       </section>
+
+      <section className="mt-24">
+        <div className="relative pt-0 text-center">
+          <div className="bg-info pointer-events-none absolute w-1/2 left-1/2 aspect-square rounded-full -translate-x-1/2 -top-96 opacity-5 blur-2xl"></div>
+          {/* <div className="bg-primary pointer-events-none absolute w-1/2 left-1/2 aspect-square rounded-full -translate-x-1/2 -top-96 opacity-10 blur-3xl"></div> */}
+
+          <div className="text-center">
+            <h2 className="text-2xl font-extrabold">
+              مشتریان ما چه می گویند ؟!
+            </h2>
+            <p>نظرات صادقانه ی افرادی که با ما تجربه داشته اند ...</p>
+            <TestMonialList testimonials={testimonials} />
+          </div>
+        </div>
+      </section>
+
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </>
   );
 }
