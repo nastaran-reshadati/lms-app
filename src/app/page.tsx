@@ -10,6 +10,11 @@ import { Button } from "./_components/button";
 import { BlogSummary } from "@/types/blog-summary-interface";
 import { BlogCardList } from "./(blog)/components/blogCardList/BlogCardList";
 import { API_URL } from "@/configs/global";
+import { MockBlogSummaries } from "@/enums/general";
+import { Suspense } from "react";
+import { CardPlaceholder } from "./_components/placeholder/card/card-placeholder";
+
+// export const dynamic = "force-dynamic"; // This will disable static generation for this page
 
 // async function getNewestCourses(count: number): Promise<CourrseSummary[]> {
 //   const res = await fetch(
@@ -19,20 +24,17 @@ import { API_URL } from "@/configs/global";
 //   return res.json();
 // }
 
-async function getNewestCoursesData(count: number): Promise<CourrseSummary[]> {
-  const res = await fetch(`${API_URL}/courses/newest/${count}`);
-  return res.json();
-}
 async function getNewestBlogsData(count: number): Promise<BlogSummary[]> {
-  const res = await fetch(`${API_URL}/blog/newest/${count}`);
-  return res.json();
+  // const res = await fetch(`${API_URL}/blog/newest/${count}`);
+  // return res.json();
+
+  return MockBlogSummaries.slice(0, count);
 }
 
 export default async function Home() {
-  const newestCourses = getNewestCoursesData(4);
   const newestBlogs = getNewestBlogsData(4);
 
-  const [courses, blogs] = await Promise.all([newestCourses, newestBlogs]);
+  const [blogs] = await Promise.all([newestBlogs]);
 
   return (
     <>
@@ -45,15 +47,19 @@ export default async function Home() {
             ))}
           </div>
         </section>
-        <section className="pt-20">
+        <section className="container  pt-20">
           <div className="text-center xl:text-right">
             <h2 className="text-2xl font-extrabold">
               تازه ترین دوره های آموزشی
             </h2>
-            <p>برای به روز موندن یادگرفتن نکته های تازه ضروریه ! </p>
+            <p className="mt-3 text-lg">
+              برای به‌روز موندن، یاد گرفتن نکته‌های تازه ضروری‌ه!
+            </p>
           </div>
+          <Suspense fallback={<CardPlaceholder count={4} />}>
+            <CourseCardList />
+          </Suspense>
         </section>
-        <CourseCardList courses={courses} />
         <section className="my-40 px-2">
           <div className="relative pt-0 text-center">
             <div className="bg-primary pointer-events-none absolute w-1/2 left-1/2 aspect-square rounded-full -translate-x-1/2 -top-96 opacity-10 blur-3xl"></div>

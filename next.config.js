@@ -14,9 +14,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "classbon-blog.s3.ir-thr-at1.arvanstorage.ir",
       },
+
       {
         protocol: "https",
-        hostname: "classbon-blog.s3.ir-thr-at1.arvanstorage.com",
+        hostname: "picsum.photos",
       },
     ],
   },
