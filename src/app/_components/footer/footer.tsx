@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { Avatar } from "../avatar";
 
 const Footer: React.FC = () => {
   return (
@@ -62,6 +63,7 @@ const Footer: React.FC = () => {
       <div className="bg-base-200 text-left" lang="en" dir="ltr">
         <div className="container py-10 flex justify-between items-center">
           <div className="flex gap-5 items-center ">
+            <Avatar variant="success" src="/images/customer-9.jpg" />
             <div className="flex flex-col">
               <span className="text-base-content/50 ">Developed by:</span>
               <span className="text-lg font-bold tracking-wide">
@@ -69,6 +71,10 @@ const Footer: React.FC = () => {
               </span>
             </div>
           </div>
+          <span className="text-sm text-base-content/60 font-semibold">
+            Copyright © 2023
+            <p>All rights reserved</p>
+          </span>
         </div>
       </div>
     </div>
