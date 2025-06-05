@@ -27,7 +27,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "jest.setup.js"
+    "jest.setup.js",
+    "src/app/(courses)/courses/[slug]"
   ],
   "exclude": ["node_modules"]
 }
