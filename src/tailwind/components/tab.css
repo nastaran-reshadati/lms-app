@@ -8,7 +8,7 @@
     @apply font-bold text-current text-sm xl:text-lg p-2 transition-all duration-75 border-b border-transparent cursor-pointer;
   }
   .active-tab {
-    @apply font-bold text-xl xl:text-2xl border-b dark:border-base-content/10;
+    @apply font-semibold text-xl  border-b dark:border-white/50 dark:text-white/80 p-1;
   }
   .tab-content {
     @apply text-lg leading-10 min-h-screen;

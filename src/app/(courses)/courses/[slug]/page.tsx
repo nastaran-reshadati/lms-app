@@ -37,7 +37,6 @@ export default async function CourseDetails({
     })
   );
 
-  console.log(afqs);
   const tabs = [
     {
       label: "مشخصات دوره ",

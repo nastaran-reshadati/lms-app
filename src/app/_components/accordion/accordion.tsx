@@ -7,7 +7,6 @@ import { IconChevronDown, IconChevronUp } from "../icons/icons";
 export const Accordion: React.FC<AccordionProps> = ({ data }) => {
   const [activeAccordion, setActiveAccordion] = useState<number | null>(null);
 
-  console.log(activeAccordion);
   const toggleAccordion = (index: number) => {
     setActiveAccordion(activeAccordion !== index ? index : null);
   };
