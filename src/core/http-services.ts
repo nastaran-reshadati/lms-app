@@ -13,6 +13,7 @@ import axios, {
   AxiosRequestHeaders,
   AxiosResponse,
 } from "axios";
+import { errorHandler, networkErrorStartegy } from "./http-error-strategies";
 
 type ApiError =
   | BadRequestError
@@ -35,49 +36,50 @@ httpService.interceptors.response.use(
     return response;
   },
   (error) => {
+    debugger;
     if (error?.response) {
       const statusCode = error?.response?.status;
       if (statusCode >= 400) {
         const errorData: ApiError = error.response?.data;
 
-        if (statusCode === 400 && !errorData.errors) {
-          throw {
-            ...errorData,
-          } as BadRequestError;
-        }
+        errorHandler[statusCode](errorData);
 
-        if (statusCode === 400 && errorData.errors) {
-          throw {
-            ...errorData,
-          } as ValidationError;
-        }
+        // if (statusCode === 400 && !errorData.errors) {
+        //   throw {
+        //     ...errorData,
+        //   } as BadRequestError;
+        // }
 
-        if (statusCode === 404) {
-          throw {
-            ...errorData,
-            detail: "سرویس موردنظر یافت نشد !",
-          } as NotFoundError;
-        }
+        // if (statusCode === 400 && errorData.errors) {
+        //   throw {
+        //     ...errorData,
+        //   } as ValidationError;
+        // }
 
-        if (statusCode === 403) {
-          throw {
-            ...errorData,
-            detail: "دسترسی به سرویس موردنظر امکان پذیر نیست !",
-          } as UnauthorizeError;
-        }
+        // if (statusCode === 404) {
+        //   throw {
+        //     ...errorData,
+        //     detail: "سرویس موردنظر یافت نشد !",
+        //   } as NotFoundError;
+        // }
 
-        // Unhandle exceptions
-        if (statusCode >= 500) {
-          throw {
-            ...errorData,
-            detail: "خطای سرور !",
-          } as UnhandleException;
-        }
-      } else {
-        throw {
-          detail: "خطای شبکه ",
-        } as NetworkError;
+        // if (statusCode === 403) {
+        //   throw {
+        //     ...errorData,
+        //     detail: "دسترسی به سرویس موردنظر امکان پذیر نیست !",
+        //   } as UnauthorizeError;
+        // }
+
+        // // Unhandle exceptions
+        // if (statusCode >= 500) {
+        //   throw {
+        //     ...errorData,
+        //     detail: "خطای سرور !",
+        //   } as UnhandleException;
+        // }
       }
+    } else {
+      networkErrorStartegy();
     }
   }
 );
@@ -86,6 +88,7 @@ async function apiBase<T>(
   url: string,
   options?: AxiosRequestConfig
 ): Promise<T> {
+  debugger;
   const response: AxiosResponse = await httpService(url, options);
   return response.data as T;
 }
@@ -107,6 +110,7 @@ async function createData<TModel, TResult>(
   data: TModel,
   headers?: AxiosRequestHeaders
 ): Promise<TResult> {
+  debugger;
   const options: AxiosRequestConfig = {
     method: "POST",
     headers: headers,
