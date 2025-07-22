@@ -1,8 +1,12 @@
+/** @format */
+
 import "./globals.css";
 import { Figtree } from "next/font/google";
 import localFont from "next/font/local";
 import Header from "./_components/header/header";
 import Footer from "./_components/footer/footer";
+import { QueryClientProvider } from "react-query";
+import QueryProvider from "@/providers/react-query-provider";
 const figTree = Figtree({
   display: "swap",
   subsets: ["latin"],
@@ -46,12 +50,14 @@ export default function RootLayout({
       dir="rtl"
       className={`dark ${figTree.variable} ${vazirFont.variable}`}
     >
-      <body className="min-h-screen grid grid-rows-[80px_1fr_auto] dark dark:bg-base-100 dark:text-base-content">
-        <Header />
-        {children}
+      <QueryProvider>
+        <body className="min-h-screen grid grid-rows-[80px_1fr_auto] dark dark:bg-base-100 dark:text-base-content">
+          <Header />
+          {children}
 
-        <Footer />
-      </body>
+          <Footer />
+        </body>
+      </QueryProvider>
     </html>
   );
 }
