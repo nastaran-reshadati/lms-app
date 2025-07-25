@@ -5,7 +5,6 @@ import { Figtree } from "next/font/google";
 import localFont from "next/font/local";
 import Header from "./_components/header/header";
 import Footer from "./_components/footer/footer";
-import { QueryClientProvider } from "react-query";
 import QueryProvider from "@/providers/react-query-provider";
 const figTree = Figtree({
   display: "swap",

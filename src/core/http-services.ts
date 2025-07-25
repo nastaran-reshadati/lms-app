@@ -1,3 +1,5 @@
+/** @format */
+
 import { API_URL } from "@/configs/global";
 import {
   BadRequestError,
@@ -7,6 +9,7 @@ import {
   Problem,
   NotFoundError,
   NetworkError,
+  ApiError,
 } from "@/types/http-errors.interface";
 import axios, {
   AxiosRequestConfig,
@@ -14,14 +17,6 @@ import axios, {
   AxiosResponse,
 } from "axios";
 import { errorHandler, networkErrorStartegy } from "./http-error-strategies";
-
-type ApiError =
-  | BadRequestError
-  | NetworkError
-  | ValidationError
-  | UnhandleException
-  | UnauthorizeError
-  | NotFoundError;
 
 export const httpService = axios.create({
   baseURL: API_URL,
@@ -36,12 +31,10 @@ httpService.interceptors.response.use(
     return response;
   },
   (error) => {
-    debugger;
     if (error?.response) {
       const statusCode = error?.response?.status;
       if (statusCode >= 400) {
         const errorData: ApiError = error.response?.data;
-
         errorHandler[statusCode](errorData);
 
         // if (statusCode === 400 && !errorData.errors) {
@@ -88,7 +81,6 @@ async function apiBase<T>(
   url: string,
   options?: AxiosRequestConfig
 ): Promise<T> {
-  debugger;
   const response: AxiosResponse = await httpService(url, options);
   return response.data as T;
 }
@@ -110,7 +102,6 @@ async function createData<TModel, TResult>(
   data: TModel,
   headers?: AxiosRequestHeaders
 ): Promise<TResult> {
-  debugger;
   const options: AxiosRequestConfig = {
     method: "POST",
     headers: headers,
