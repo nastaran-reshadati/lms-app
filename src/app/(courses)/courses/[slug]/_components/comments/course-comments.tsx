@@ -7,15 +7,17 @@ import { useParams } from "next/navigation";
 import { use, useEffect } from "react";
 import { useCourseComments } from "../../_api/get-comments";
 import { Comment } from "@/app/_components/comment";
+import { TextPlaceholder } from "@/app/_components/placeholder";
 
 const CourseComments = () => {
   const { slug } = useParams();
 
-  const { data: comments } = useCourseComments({
+  const { data: comments, isLoading } = useCourseComments({
     params: { slug: slug as string, page: 1 },
   });
 
-  console.log(comments);
+  console.log(isLoading);
+
   useEffect(() => {
     createData("/bad-request", {
       userId: 123,
@@ -28,6 +30,7 @@ const CourseComments = () => {
         <Comment key={`comment-${comment.id}`} {...comment} variant="primary" />
         // <p key={comment.id}>{comment.commentText}</p>
       ))}
+      {isLoading && <TextPlaceholder />}
     </div>
   );
 };

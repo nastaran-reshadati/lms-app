@@ -16,18 +16,8 @@ export const Comment: React.FC<CommentProps> = ({
   variant = "accent",
   className,
 }) => {
-  console.log(
-    "comments",
-    commentText,
-    date,
-    fullName,
-    isResponse,
-    score,
-    userId
-  );
   const apiUrl = `${API_URL}/picture/${userId}`;
 
-  console.log(apiUrl);
   const userImgPath = userId ? apiUrl : "";
   return (
     <div className={`comment comment-${isResponse ? "end" : "start"}`}>
