@@ -11,6 +11,8 @@ import { Accordion } from "@/app/_components/accordion";
 import CourseComments from "./_components/comments/course-comments";
 import { CourseChapter } from "@/types/course-chapter-interface";
 import { CourseCurriculum } from "./_components/curriculum";
+import { VideoPlayer } from "@/app/_components/video-player";
+import Image from "next/image";
 
 export async function generateStaticParams() {
   const slugs = await fetch(`${API_URL}/courses/slugs`).then((res) =>
@@ -41,6 +43,8 @@ export default async function CourseDetails({
     courseData,
     curriculumData,
   ]);
+
+  console.log("courseDetail &&", courseDetail, "&&");
 
   const afqs: AccordionItem[] = courseDetail?.frequentlyAskedQuestions.map(
     (faq) => ({
@@ -78,7 +82,21 @@ export default async function CourseDetails({
         <h2 className="text-center xl:text-right text-xl">
           {courseDetail.subTitle}
         </h2>
-        <div>music player</div>
+        {courseDetail.videoUrl ? (
+          <VideoPlayer
+            src={courseDetail.videoUrl}
+            poster={`${API_URL}/picture/${courseDetail.coverImageId}`}
+          />
+        ) : (
+          <Image
+            src={`${API_URL}/picture/${courseDetail.coverImageId}`}
+            alt={courseDetail.title}
+            width={550}
+            height={327}
+            className="w-full"
+          />
+        )}
+        {/* <VideoPlayer src="" /> */}
       </div>
 
       <div className="col-span-10 xl:col-span-3">
