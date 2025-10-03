@@ -10,9 +10,9 @@ export default function AuthTemplate({
   return (
     <div className="container fade-in max-w-5xl dark:bg-base-75 mt-16 rounded-lg border dark:border-base-25 dark:border-opacity-10">
       {/* <section className="flex-1 flex flex-col">{children}</section> */}
-      <section className="flex justify-between items-center p-10">
+      <section className="flex justify-between items-start p-10">
         <div>
-          <h6>Sign in page</h6>
+          <h6>{children}</h6>
         </div>
 
         <div className="dark:bg-primary-focus rounded-lg p-4 shadow-lg">

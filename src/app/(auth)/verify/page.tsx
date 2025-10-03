@@ -1,5 +1,17 @@
+/** @format */
+
+import Link from "next/link";
+
 export default async function Verify() {
-  <div className="text-5xl flex justify-center items-center">
-    <h1>this is Verify page</h1>
-  </div>;
+  return (
+    <div>
+      <h1>hello Verify page</h1>
+      <Link href="/signin">back to sign in</Link>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis
+        mollitia debitis quidem. Soluta dolore vitae minima delectus labore
+        sequi quos.
+      </p>
+    </div>
+  );
 }
