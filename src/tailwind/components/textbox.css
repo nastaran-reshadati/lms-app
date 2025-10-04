@@ -1,0 +1,66 @@
+.textbox {
+  @apply bg-transparent border dark:border-base-25 outline-none rounded-md px-4 h-12;
+  @apply text-sm leading-loose flex-shrink dark:placeholder-base-content placeholder-opacity-30;
+
+  &-ghost {
+    @apply bg-opacity-5;
+    &:focus {
+      @apply dark:outline;
+    }
+  }
+  &-primary {
+    @apply dark:border-primary;
+    &:focus {
+      @apply bg-opacity-100 dark:outline-primary dark:border-primary;
+      box-shadow: none;
+    }
+  }
+  &-secondary {
+    @apply dark:border-secondary;
+    &:focus {
+      @apply dark:outline-secondary;
+    }
+  }
+  &-accent {
+    @apply dark:border-accent;
+    &:focus {
+      @apply dark:outline-accent;
+    }
+  }
+  &-info {
+    @apply dark:border-info;
+    &:focus {
+      @apply dark:outline-info;
+    }
+  }
+  &-success {
+    @apply dark:border-success;
+    &:focus {
+      @apply dark:outline-success;
+    }
+  }
+  &-error {
+    @apply dark:border-error;
+    &:focus {
+      @apply dark:outline-error;
+    }
+  }
+  &-warning {
+    @apply dark:border-warning;
+    &:focus {
+      @apply dark:outline-warning;
+    }
+  }
+  &-xs {
+    @apply h-6 px-2 text-xs leading-relaxed;
+  }
+  &-md {
+    @apply h-12 px-4 text-sm leading-loose;
+  }
+  &-lg {
+    @apply h-16 px-6 text-lg leading-loose;
+  }
+  &-sm {
+    @apply h-8 px-3 text-sm leading-8;
+  }
+}

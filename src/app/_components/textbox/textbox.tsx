@@ -13,15 +13,19 @@ const sizeClasses = {
 
 export const Textbox: React.FC<TextboxProps> = ({
   type = "text",
-  variant = "ghost",
+  variant,
   className,
   size = "normal",
   ...rest
 }) => {
-  const classes = classNames("textbox", "w-full", className, {});
-  return (
-    <>
-      <div></div>
-    </>
+  const classes = classNames(
+    "textbox",
+    "w-full",
+    className,
+    {
+      [`textbox-${variant}`]: variant,
+    },
+    { [`${sizeClasses[size]}`]: size }
   );
+  return <input type={type} className={classes} {...rest} />;
 };
