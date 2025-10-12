@@ -4,16 +4,27 @@ import { Textbox } from "@/app/_components/textbox";
 import { useForm } from "react-hook-form";
 import { signinProps } from "./types/signin.type";
 import { TextInput } from "@/app/_components/form-input";
+import { useSignIn } from "./_api/signin";
+import { useRouter } from "next/navigation";
 
 export const SinInForm = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
+    getValues,
   } = useForm<signinProps>();
 
-  const onSubmit = (data: any) => {
+  const router = useRouter();
+
+  const signIn = useSignIn({
+    onSuccess: () => {
+      router.push(`/verify?mobile=${getValues("mobile")}`);
+    },
+  });
+  const onSubmit = (data: signinProps) => {
     console.log(data);
+    signIn.submit(data);
   };
   return (
     <>
@@ -23,13 +34,6 @@ export const SinInForm = () => {
         className="mt-16 flex flex-col gap-y-4"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <Textbox
-          {...register("mobile", { required: "شماره موبایل الزامی است" })}
-          variant="info"
-          placeholder="شماره موبایل"
-          size="normal"
-        />
-
         <TextInput<signinProps>
           register={register}
           name={"mobile"}
@@ -37,16 +41,21 @@ export const SinInForm = () => {
             required: "شماره موبایل الزامی است",
             maxLength: {
               value: 11,
-              message: "شماره موبایل باید 11 رقم باد",
+              message: "شماره موبایل باید 11 رقم باشد",
             },
             minLength: {
               value: 11,
-              message: "شماره موبایل باید 11 رقم باد",
+              message: "شماره موبایل باید 11 رقم باشد",
             },
-            errors = { errors },
           }}
+          errors={errors}
         />
-        <Button type="submit" variant="primary" shape="full">
+        <Button
+          isLoading={signIn.isPending}
+          type="submit"
+          variant="primary"
+          shape="full"
+        >
           تایید و دریافت کد
         </Button>
       </form>
