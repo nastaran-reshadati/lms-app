@@ -11,20 +11,19 @@ export type NotificationState = {
 export const useNotificationStore = create<NotificationState>((set, get) => ({
   notifications: [],
   showNotification: (notification) => {
-   const id = GenerateId()
+    const id = GenerateId();
 
-   set((state) => ({
-    notifications : [...state.notifications , {id : id , ...notification}]
-   })) 
+    set((state) => ({
+      notifications: [...state.notifications, { id: id, ...notification }],
+    }));
 
-   setTimeout(() => {
-       get().dismissNotification(id)
-   }, notification.duration);
-
+    setTimeout(() => {
+      get().dismissNotification(id);
+    }, notification.duration);
   },
   dismissNotification: (id) => {
     set((state) => ({
-      notifications: state.notifications.filter((notif) => notif.id !== id);
+      notifications: state.notifications.filter((notif) => notif.id !== id),
     }));
   },
 }));

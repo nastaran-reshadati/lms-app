@@ -6,6 +6,8 @@ import { signinProps } from "./types/signin.type";
 import { TextInput } from "@/app/_components/form-input";
 import { useSignIn } from "./_api/signin";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+import { useNotificationStore } from "@/store/notification.store";
 
 export const SinInForm = () => {
   const {
@@ -26,6 +28,19 @@ export const SinInForm = () => {
     console.log(data);
     signIn.submit(data);
   };
+
+  const showNotification = useNotificationStore(
+    (state) => state.showNotification
+  );
+
+  console.log(notification);
+  useEffect(() => {
+    showNotification({
+      type: "success",
+      message: "عملیات با موفقیت انجام شد",
+    });
+  }, []);
+
   return (
     <>
       <h5 className="text-2xl"> ورود | ثبت نام </h5>
