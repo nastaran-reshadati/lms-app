@@ -32,8 +32,10 @@ export const SinInForm = () => {
   const showNotification = useNotificationStore(
     (state) => state.showNotification
   );
+  const notifications = useNotificationStore((state) => state.notifications);
 
-  console.log(notification);
+  console.log(notifications);
+
   useEffect(() => {
     showNotification({
       type: "success",

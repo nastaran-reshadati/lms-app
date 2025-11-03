@@ -1,6 +1,7 @@
 import { Notification } from "@/types/notification.store";
 import { GenerateId } from "@/utils/generateId";
 import { create } from "zustand";
+import { devtools } from "zustand/middleware";
 
 export type NotificationState = {
   notifications: Notification[];
@@ -8,22 +9,23 @@ export type NotificationState = {
   dismissNotification: (id: string) => void;
 };
 
-export const useNotificationStore = create<NotificationState>((set, get) => ({
-  notifications: [],
-  showNotification: (notification) => {
-    const id = GenerateId();
+export const useNotificationStore = create<NotificationState>()(
+  devtools((set, get) => ({
+    notifications: [],
+    showNotification: (notification) => {
+      const id = GenerateId();
+      set((state) => ({
+        notifications: [...state.notifications, { id: id, ...notification }],
+      }));
 
-    set((state) => ({
-      notifications: [...state.notifications, { id: id, ...notification }],
-    }));
-
-    setTimeout(() => {
-      get().dismissNotification(id);
-    }, notification.duration);
-  },
-  dismissNotification: (id) => {
-    set((state) => ({
-      notifications: state.notifications.filter((notif) => notif.id !== id),
-    }));
-  },
-}));
+      setTimeout(() => {
+        get().dismissNotification(id);
+      }, 5000);
+    },
+    dismissNotification: (id) => {
+      set((state) => ({
+        notifications: state.notifications.filter((p) => p.id !== id),
+      }));
+    },
+  }))
+);
