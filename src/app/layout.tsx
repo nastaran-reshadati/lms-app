@@ -51,13 +51,13 @@ export default function RootLayout({
       dir="rtl"
       className={`dark ${figTree.variable} ${vazirFont.variable}`}
     >
-      <Notifications />
       <QueryProvider>
         <body className="min-h-screen grid grid-rows-[80px_1fr_auto] dark dark:bg-base-100 dark:text-base-content">
           <Header />
           {children}
 
           <Footer />
+          <Notifications />
         </body>
       </QueryProvider>
     </html>
