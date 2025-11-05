@@ -38,7 +38,7 @@ export const SinInForm = () => {
 
   useEffect(() => {
     showNotification({
-      type: "success",
+      type: "error",
       message: "عملیات با موفقیت انجام شد",
     });
   }, []);

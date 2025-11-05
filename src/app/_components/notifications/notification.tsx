@@ -10,7 +10,7 @@ export const Notifications: React.FC<NotificationProps> = () => {
 
   // if (notifications.length < 1) return;
   return (
-    <div className="fixed flex flex-col-reverse bottom-3 right-3 gap-3">
+    <div className="fixed bottom-3 right-2">
       {notifications?.map((notif) => (
         <NotificationToast
           notification={notif}
