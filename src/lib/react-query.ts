@@ -30,22 +30,42 @@ export const queryClient = new QueryClient({
 
 const showNotification = (problem: Problem) => {
   const notifications: Omit<Notification, "id">[] = [];
-
-  if (problem.errors) {
-  } else if (problem.detail) {
-    Object.entries(problem.errors).forEach([_ , values] => {
-      values.forEach((message)=> {
-         notifications.push({
-      type: "error",
-      message: problem.detail,
-    });
-      })
-    });
+  if (problem?.errors) {
+    Object.entries(problem.errors).forEach(([_, values]) =>
+      values.forEach((errorMessage) =>
+        notifications.push({
+          message: errorMessage,
+          type: "error",
+        })
+      )
+    );
+  } else if (problem?.detail) {
     notifications.push({
+      message: problem?.detail,
       type: "error",
-      message: problem.detail,
     });
   }
-
   useNotificationStore.getState().notifications;
 };
+
+// const showNotification = (problem: Problem) => {
+//   const notifications: Omit<Notification, "id">[] = [];
+
+//   if (problem.errors) {
+//   } else if (problem.detail) {
+//     Object.entries(problem.errors).forEach([_ , values] => {
+//       values.forEach((message)=> {
+//          notifications.push({
+//       type: "error",
+//       message: problem.detail,
+//     });
+//       })
+//     });
+//     notifications.push({
+//       type: "error",
+//       message: problem.detail,
+//     });
+//   }
+
+//   useNotificationStore.getState().notifications;
+// };
