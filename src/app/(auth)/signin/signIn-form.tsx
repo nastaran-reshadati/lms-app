@@ -26,7 +26,7 @@ export const SinInForm = () => {
   );
   const signIn = useSignIn({
     onSuccess: () => {
-      // router.push(`/verify?mobile=${getValues("mobile")}`);
+      router.push(`/verify?mobile=${getValues("mobile")}`);
       showNotification({
         message: "کد تایید به شماره شما ارسال شد",
         type: "info",
